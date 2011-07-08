@@ -61,7 +61,7 @@ void MainApp::draw(){
     
 	gl::clear(Color(0.0f, 0.0f, 0.0f));
 	glColor3f(0.25f, 0.25f, 0.95f);
-    this->drawText();
+    //this->drawText();
     gl::translate(Vec2f(getWindowSize().x/2, getWindowSize().y/2));
     gl::scale(Vec3f(10,10,0));
     glLineWidth(2.0f);
@@ -90,9 +90,9 @@ void MainApp::drawText(){
 	
     //simple.setFont( customFont );
 	simple.setColor( Color( 1, 1, 1 ) );
-	simple.addLine(this->lorenzSolver.getSigma());
-	simple.addLine(this->lorenzSolver.getBeta());
-	simple.addLine(this->lorenzSolver.getRho());
+	//simple.addLine(this->lorenzSolver.getSigma());
+	//simple.addLine(this->lorenzSolver.getBeta());
+	//simple.addLine(this->lorenzSolver.getRho());
 	mSimpleTexture = gl::Texture(simple.render(true));
 
     gl::draw(mSimpleTexture, Vec2f(0,0));
