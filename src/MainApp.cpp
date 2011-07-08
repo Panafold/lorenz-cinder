@@ -71,9 +71,9 @@ void MainApp::draw(){
 
     for(std::list<Vec3f>::iterator pointIter = this->points.begin(); pointIter != this->points.end(); ++pointIter ) {
 
-        glColor3f((*pointIter).x*Rand::randFloat(0.0f,0.1f),
-                  (*pointIter).y*Rand::randFloat(0.0f,0.1f),
-                  (*pointIter).z*Rand::randFloat(0.0f,0.1f));
+        glColor3f((*pointIter).x*Rand::randFloat(-0.1f,0.1f), 0.8f, 0.1f);
+                  //(*pointIter).y*Rand::randFloat(-0.1f,0.1f),
+                  //(*pointIter).z*Rand::randFloat(-0.1f,0.1f));
         glBegin( GL_LINE_STRIP );
 		glVertex3f( *oldPointIter );
 		glVertex3f( *pointIter );
