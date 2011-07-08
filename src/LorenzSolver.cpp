@@ -28,7 +28,7 @@ Vec3f LorenzSolver::computePoint(Vec3f oldPoint){
     newPoint.y= oldPoint.y + (this->A.y+this->B.y*2+this->C.y*2+this->D.y) * this->delta/6.0f;
     newPoint.z= oldPoint.z + (this->A.z+this->B.z*2+this->C.z*2+this->D.z) * this->delta/6.0f;
     
-    std::cerr << newPoint.x << " " << newPoint.y << " " << newPoint.z << " " << std::endl;
+    //std::cerr << newPoint.x << " " << newPoint.y << " " << newPoint.z << " " << std::endl;
     return newPoint;
 }
 
