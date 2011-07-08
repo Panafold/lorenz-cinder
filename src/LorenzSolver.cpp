@@ -57,7 +57,7 @@ void LorenzSolver::computeD(){
 }
 
 float LorenzSolver::f1(float p1, float p2, float p3){
-    float r= this->sigma * (this->oldPoint.y + p1 * this->delta/2 - (this->oldPoint.x + p2 * this->delta/2));
+    float r= this->sigma * (this->oldPoint.y + p2 * this->delta/2 - (this->oldPoint.x + p1 * this->delta/2));
 
     return r;
 }
