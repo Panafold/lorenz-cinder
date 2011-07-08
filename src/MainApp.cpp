@@ -20,9 +20,9 @@ MainApp::MainApp(){
     
     for (int i=0; i<NUM_POINTS; i++){
         Vec3f p= Vec3f(
-                       Rand::randFloat(200.0f,400.0f),
-                       Rand::randFloat(200.0f,400.0f),
-                       Rand::randFloat(5.0f,10.0f));
+                       Rand::randFloat(-50.0f,50.0f),
+                       Rand::randFloat(-50.0f,50.0f),
+                       Rand::randFloat(-10.0f,10.0f));
 
         this->oldPoints.push_back(p);
         this->points.push_back(p);
