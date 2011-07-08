@@ -19,7 +19,10 @@ class MainApp : public AppBasic {
 public:
     MainApp();
 	void draw();
-
+    void drawText();
+    
+    void keyDown(KeyEvent event);
+    
 protected:
     LorenzSolver lorenzSolver;
     
