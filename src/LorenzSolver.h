@@ -17,6 +17,11 @@ public:
     LorenzSolver();
         
     Vec3f computePoint(Vec3f);
+    
+    void setDelta(int newDelta){this->delta= newDelta;};
+    void setSigma(int newSigma){this->sigma= newSigma;};
+    void setBeta(int newBeta){this->beta= newBeta;};
+    void setRho(int newRho){this->rho= newRho;};
 
 private:
 
