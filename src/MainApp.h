@@ -21,6 +21,7 @@ public:
 	void draw();
     void drawText();
     
+    void prepareSettings(Settings* settings);
     void keyDown(KeyEvent event);
     void mouseMove(MouseEvent event);
     void mouseDrag(MouseEvent event);

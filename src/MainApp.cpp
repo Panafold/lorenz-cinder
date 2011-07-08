@@ -35,6 +35,12 @@ MainApp::MainApp(){
     }
 }
 
+void MainApp::prepareSettings( Settings *settings ){
+    settings->setWindowSize( 1024, 768);
+    //settings->setFullScreen();
+    settings->setFrameRate( 60.0f );
+}
+
 void MainApp::keyDown(KeyEvent event){
     if (event.getChar()=='u')
         this->lorenzSolver.setSigma(-0.1f);
