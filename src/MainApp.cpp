@@ -60,7 +60,7 @@ void MainApp::draw(){
 	gl::setMatricesWindow( getWindowSize() );
     
 	gl::clear(Color(0.0f, 0.0f, 0.0f));
-	glColor3f(0.25f, 0.25f, 0.95f);
+	//glColor3f(0.25f, 0.25f, 0.95f);
     //this->drawText();
     gl::translate(Vec2f(getWindowSize().x/2, getWindowSize().y/2));
     gl::scale(Vec3f(10,10,0));
@@ -71,6 +71,9 @@ void MainApp::draw(){
 
     for(std::list<Vec3f>::iterator pointIter = this->points.begin(); pointIter != this->points.end(); ++pointIter ) {
 
+        glColor3f((*pointIter).x*Rand::randFloat(0.0f,0.1f),
+                  (*pointIter).y*Rand::randFloat(0.0f,0.1f),
+                  (*pointIter).z*Rand::randFloat(0.0f,0.1f));
         glBegin( GL_LINE_STRIP );
 		glVertex3f( *oldPointIter );
 		glVertex3f( *pointIter );
