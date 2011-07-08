@@ -18,10 +18,15 @@ public:
         
     Vec3f computePoint(Vec3f);
     
-    void setDelta(int newDelta){this->delta= newDelta;};
-    void setSigma(int newSigma){this->sigma= newSigma;};
-    void setBeta(int newBeta){this->beta= newBeta;};
-    void setRho(int newRho){this->rho= newRho;};
+    void setDelta(float newDelta){this->delta+= newDelta;};
+    void setSigma(float newSigma){this->sigma+= newSigma;};
+    void setBeta(float newBeta){this->beta+= newBeta;};
+    void setRho(float newRho){this->rho+= newRho;};
+
+    float getDelta(){return this->delta;};
+    float getSigma(){return this->sigma;};
+    float getBeta(){return this->beta;};
+    float getRho(){return this->rho;};
 
 private:
 
