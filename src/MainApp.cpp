@@ -16,8 +16,12 @@
 using namespace ci;
 
 MainApp::MainApp(){
-    Rand::randomize();
+    this->dx=this->dy=0;
+    this->xFrustrumOffset=this->yFrustrumOffset=0;
+    this->lineWidth=1.f;
+    this->zoomFactor=10.f;
     
+    Rand::randomize();
     this->lorenzSolver= LorenzSolver();
     
     for (int i=0; i<NUM_POINTS; i++){
@@ -46,7 +50,26 @@ void MainApp::keyDown(KeyEvent event){
         this->lorenzSolver.setRho(-0.1f);
     else if (event.getChar()=='m')
         this->lorenzSolver.setRho(0.1f);
+    
 
+    if (event.getChar()=='z')
+        this->lineWidth-=0.1f;
+    if (event.getChar()=='x')
+        this->lineWidth+=0.1f;
+}
+
+void MainApp::mouseMove(MouseEvent event){
+    this->dx+=(event.getPos().x-this->dx)*0.1;
+    this->dy+=(event.getPos().y-this->dy)*0.1;
+}
+
+void MainApp::mouseDrag(MouseEvent event){
+    this->xFrustrumOffset= event.getPos().x - getWindowSize().x/2;
+    this->yFrustrumOffset= event.getPos().y - getWindowSize().y/2;
+}
+
+void MainApp::mouseWheel(MouseEvent event){
+    this->zoomFactor+=event.getWheelIncrement()/10.f;
 }
 
 void MainApp::draw(){
@@ -62,9 +85,15 @@ void MainApp::draw(){
 	gl::clear(Color(0.0f, 0.0f, 0.0f));
 	//glColor3f(0.25f, 0.25f, 0.95f);
     //this->drawText();
-    gl::translate(Vec2f(getWindowSize().x/2, getWindowSize().y/2));
-    gl::scale(Vec3f(10,10,0));
-    glLineWidth(2.0f);
+    gl::translate(Vec2f((getWindowSize().x+this->xFrustrumOffset)/2, (getWindowSize().y+this->yFrustrumOffset)/2));
+    gl::scale(Vec3f(this->zoomFactor,this->zoomFactor,0));
+
+    float xAngle=(this->dx-getWindowSize().x/2)/2;
+    float yAngle=(getWindowSize().y/2-this->dy)/2;
+    
+    
+    gl::rotate(Vec3f(yAngle,xAngle, 0)); 
+    glLineWidth(this->lineWidth);
 
 	// iterate across our list of points, and pass each one to OpenGL
 	std::list<Vec3f>::iterator oldPointIter = this->oldPoints.begin();

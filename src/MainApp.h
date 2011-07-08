@@ -22,12 +22,20 @@ public:
     void drawText();
     
     void keyDown(KeyEvent event);
+    void mouseMove(MouseEvent event);
+    void mouseDrag(MouseEvent event);
+    void mouseWheel(MouseEvent event);
     
 protected:
     LorenzSolver lorenzSolver;
     
     std::list<Vec3f> oldPoints;
     std::list<Vec3f> points;
+
+    int dx, dy;
+    int xFrustrumOffset, yFrustrumOffset;
+    float zoomFactor;
+    float lineWidth;
 };
 
 
